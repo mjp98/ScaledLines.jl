@@ -3,11 +3,21 @@ uuid = "477db0d3-c149-468e-ab7b-d482e46444c0"
 authors = ["Matthew Priddin and contributors"]
 version = "0.1.0"
 
+[deps]
+ApproxFun = "28f2ccd6-bb30-5033-b560-165f7b14dc2f"
+ApproxFunBase = "fbd15aa5-315a-5a7d-a8a4-24992e37be05"
+DomainSets = "5b8099bc-c8ec-5219-889f-1d9e522a28bf"
+RiemannHilbert = "79305c5b-9889-52e9-bdbd-56f883c71fe0"
+SingularIntegralEquations = "e094c991-5a90-5477-8896-c1e4c9552a1a"
+WienerHopf = "ac0c8dbe-b04b-11e9-2708-77ad36e1f2f5"
+
 [compat]
-julia = "1.7"
+julia = "1.7, 1.8"
 
 [extras]
+RiemannHilbert = "79305c5b-9889-52e9-bdbd-56f883c71fe0"
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+WienerHopf = "ac0c8dbe-b04b-11e9-2708-77ad36e1f2f5"
 
 [targets]
-test = ["Test"]
+test = ["Test", "RiemannHilbert", "WienerHopf"]
