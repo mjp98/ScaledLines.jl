@@ -12,6 +12,7 @@ SingularIntegralEquations = "e094c991-5a90-5477-8896-c1e4c9552a1a"
 WienerHopf = "ac0c8dbe-b04b-11e9-2708-77ad36e1f2f5"
 
 [compat]
+ApproxFun = "0.13"
 julia = "1.7, 1.8"
 
 [extras]
