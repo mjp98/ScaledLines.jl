@@ -2,8 +2,12 @@ module ScaledLines
 
 import Base: +, -, *, /, union, intersect, ==, convert, isempty, setdiff, in
 import DomainSets: similardomain
-import ApproxFun: space, domain, setdomain, tocanonical, fromcanonical, fromcanonicalD, reverseorientation, isambiguous, arclength, leftendpoint, rightendpoint, complexlength, angle, Segment, Ray, SegmentDomain, PeriodicDomain, Line, PeriodicLine, Interval, Space,  Fun
+import ApproxFun: space, domain, setdomain, tocanonical, fromcanonical, fromcanonicalD, reverseorientation, isambiguous, arclength, leftendpoint, rightendpoint, complexlength, angle, Segment, Ray, SegmentDomain, PeriodicDomain, Line, PeriodicLine, Interval, Space,  Fun, PolynomialSpace
 import SingularIntegralEquations: hilbert, stieltjes, stieltjesmoment!
+import RiemannHilbert: fprightstieltjesmoment!, fpleftstieltjesmoment!
+import RiemannHilbert: orientedleftendpoint, orientedrightendpoint
+import Lazy: @forward
+
 
 export ScaledLine
 export ScaledSegmentLine
@@ -65,6 +69,9 @@ union(b::ScaledSegmentLine, a::Union{Interval,Segment,Ray}) = union(a, b)
 
 setdiff(b::ScaledSegmentLine, a::Segment) = setdiff(descale(b), a)
 
+orientedleftendpoint(d::ScaledSegmentLine) = orientedleftendpoint(descale(d))
+orientedrightendpoint(d::ScaledSegmentLine) = orientedrightendpoint(descale(d))
+
 function stieltjes(S::Space{<:ScaledSegmentLine}, f::AbstractVector, z::Number)
     stieltjes(descale(S), f, z / scale(S))
 end
@@ -78,5 +85,9 @@ hilbert(S::Space{<:ScaledSegmentLine}, f::AbstractVector, z::Number) = hilbert(d
 function stieltjesmoment!(ret::AbstractVector, S::Space{<:ScaledSegmentLine}, z::Number)
     return stieltjesmoment!(ret, descale(S), z / scale(S))
 end
+
+fprightstieltjesmoment!(V, sp::PolynomialSpace{<:ScaledSegmentLine}) = fprightstieltjesmoment!(V,descale(sp))
+fpleftstieltjesmoment!(V, sp::PolynomialSpace{<:ScaledSegmentLine}) = fpleftstieltjesmoment!(V,descale(sp))
+
 
 end

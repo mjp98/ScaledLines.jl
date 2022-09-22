@@ -7,12 +7,13 @@ version = "0.1.0"
 ApproxFun = "28f2ccd6-bb30-5033-b560-165f7b14dc2f"
 ApproxFunBase = "fbd15aa5-315a-5a7d-a8a4-24992e37be05"
 DomainSets = "5b8099bc-c8ec-5219-889f-1d9e522a28bf"
+Lazy = "50d2b5c4-7a5e-59d5-8109-a42b560f39c0"
 RiemannHilbert = "79305c5b-9889-52e9-bdbd-56f883c71fe0"
 SingularIntegralEquations = "e094c991-5a90-5477-8896-c1e4c9552a1a"
 WienerHopf = "ac0c8dbe-b04b-11e9-2708-77ad36e1f2f5"
 
 [compat]
-julia = "1.7, 1.8"
+julia = "1.8"
 
 [extras]
 RiemannHilbert = "79305c5b-9889-52e9-bdbd-56f883c71fe0"
